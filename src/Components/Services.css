@@ -1,0 +1,71 @@
+/* Style for the Services Section */
+.services-section {
+    padding: 60px 0;
+    background-color: #f5f5f5; /* Light background for the section */
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #003366; /* Accent color for section title */
+  }
+  
+  .services-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+  }
+  
+  .service-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adding shadow to cards */
+    border-radius: 8px;
+    padding: 30px;
+    width: 30%; /* Adjust based on your layout needs */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px); /* Add hover effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+  .service-card i {
+    font-size: 2.5rem;
+    color: #ff6600; /* Accent color for icons */
+    margin-bottom: 15px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .services-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .service-card {
+      width: 80%; /* Full width on smaller screens */
+      margin-bottom: 20px;
+      padding: 30px;
+    }
+  }
+  

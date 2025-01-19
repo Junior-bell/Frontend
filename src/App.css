@@ -1,0 +1,42 @@
+/* App.css */
+
+/* Apply Poppins font to the body */
+body {
+  font-family: 'Poppins', sans-serif; /* Applying Poppins as the default font */
+  background-color: rgb(0, 0, 33); /* Dark background */
+  color: white; /* White text color */
+  
+}
+
+/* Applying Poppins to all headings */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif; /* For clean, modern headings */
+  font-weight: 600; /* A slightly bolder weight for headings */
+}
+
+.navbar {
+  background-color: #003366; /* Dark Blue */
+  
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff;
+}
+
+.navbar .nav-link:hover {
+  color: #ff6600; /* Accent color */
+}
+
+.section-title {
+  color: #003366; /* Dark Blue */
+  
+}
+
+
+/* Smooth Scroll for all anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+
