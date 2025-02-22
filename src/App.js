@@ -9,7 +9,7 @@ import Experience from './Components/Experience'; // New Component
 import Services from './Components/Services'; // New Component
 import ImageComponent from './Components/ImageComponent';
 import About from './Components/About';
-import Projects from './Components/Project';
+import Projects from './Components/Projects'; // Corrected import
 import './App.css';
 
 const App = () => {
@@ -19,14 +19,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/Home" element={<Home/>} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/experience" element={<Experience />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/Education" element={<Education />} />
+        <Route path="/Experience" element={<Experience />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/Projects" element={<Projects />} />
-        <Route path="/About" element={<About />}/>
-    </Routes>
-      <ImageComponent /> {/* This stays on all pages */}
+        <Route path="/projects" element={<Projects />} /> {/* Corrected route */}
+        <Route path="/about" element={<About />} />
+      </Routes>
     </Router>
   );
 };

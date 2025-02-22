@@ -3,40 +3,42 @@
 /* Apply Poppins font to the body */
 body {
   font-family: 'Poppins', sans-serif; /* Applying Poppins as the default font */
-  background-color: rgb(0, 0, 33); /* Dark background */
+ /* background: linear-gradient(135deg, #001F3F, #003366); /* Dark background */
   color: white; /* White text color */
-  
+  margin: 0;
+  padding: 0;
 }
 
 /* Applying Poppins to all headings */
 h1, h2, h3 {
-  font-family: 'Poppins', sans-serif; /* For clean, modern headings */
-  font-weight: 600; /* A slightly bolder weight for headings */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
+/* ✅ Change Navbar Background to Dark Gray */
 .navbar {
-  background-color: #003366; /* Dark Blue */
-  
+  background-color: #121212 !important; /* Dark Gray */
+  padding: 10px 0;
 }
 
+/* ✅ Make Navbar Text White */
 .navbar .navbar-brand,
 .navbar .nav-link {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9) !important; /* Slightly dimmed white */
 }
 
+/* ✅ Improve Navbar Hover Effect */
 .navbar .nav-link:hover {
-  color: #ff6600; /* Accent color */
+  color: #ffcc00 !important; /* Bright Yellow Hover */
 }
 
+/* ✅ Section Title Color Change */
 .section-title {
-  color: #003366; /* Dark Blue */
-  
+  color: #ffffff; /* Change from dark blue to white for better visibility */
+  font-weight: bold;
 }
 
-
-/* Smooth Scroll for all anchor links */
+/* ✅ Smooth Scroll for all anchor links */
 html {
   scroll-behavior: smooth;
 }
-
-

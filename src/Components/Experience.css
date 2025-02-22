@@ -1,0 +1,33 @@
+.experience-section {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .experience-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .experience-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .experience-item {
+    margin-bottom: 20px;
+  }
+  
+  .experience-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .experience-item p {
+    font-size: 1rem;
+    color: #777;
+  }
