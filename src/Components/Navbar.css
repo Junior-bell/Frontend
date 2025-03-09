@@ -1,0 +1,167 @@
+/* Navbar Container */
+.navbar {
+  background-color: rgba(10, 10, 35, 0.95);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 30px;
+  height: 100%;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  color: #ffcc00;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.navbar-logo:hover {
+  color: #ff9a00;
+  transform: scale(1.05);
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-item {
+  position: relative; /* Needed for absolute positioning of underline */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+/* Nav Links */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0 5px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* 🔥 Yellow Underline Animation (Starts from Left) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  background-color: #ffcc00;
+  height: 3px;
+  width: 0;
+  left: 0;  /* Starts from the left */
+  bottom: 0; /* Correct positioning */
+  transition: width 0.3s ease-in-out;
+}
+
+/* Expand animation on hover & active */
+.nav-link:hover::after, 
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
+}
+
+.nav-link.active {
+  color: #ffcc00;
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+@media screen and (max-width: 960px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 80px;
+    right: -100%;
+    opacity: 0;
+    padding: 50px 0;
+    transition: all 0.5s ease;
+    background-color: rgba(10, 10, 35, 0.98);
+  }
+
+  .nav-menu.active {
+    right: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .nav-item {
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .nav-link {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 15px 0;
+    font-size: 1.5rem;
+  }
+
+  .nav-link::after {
+    display: none; /* Disable yellow line animation on mobile */
+  }
+
+  .nav-link.active {
+    background-color: rgba(255, 204, 0, 0.1);
+    border-radius: 8px;
+  }
+}

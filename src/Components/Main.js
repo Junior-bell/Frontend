@@ -1,31 +1,36 @@
-import React, { useEffect } from 'react';
-import Typed from 'typed.js';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Main.css';
+import profileImage from '../assets/profile.jpg';  // Import the profile image
 
 const Main = () => {
-  useEffect(() => {
-    const typed = new Typed('#element', {
-      strings: ['<i>Web</i> Developer.', 'Full Stack Java Developer.'],
-      typeSpeed: 50,
-    });
-    return () => typed.destroy(); // Cleanup
-  }, []);
-
   return (
-    <main className="container my-5">
-      <div className="row align-items-center">
-        <div className="col-md-6">
-          <h1>
-            Hi, My name is <span className="purple">Shivam</span>
-          </h1>
-          <p>and I am a Passionate</p>
-          <span id="element"></span>
+    <div className="main-container">
+      <div className="hero-content">
+        <div className="hero-image">
+          <img src={profileImage} alt="Shivam" className="profile-img" />
         </div>
-        <div className="col-md-6 text-center">
-          <img src="bg.jpg" alt="Background" className="img-fluid rounded-circle" />
+        <div className="hero-text">
+          <h1>Hello, I'm <span className="highlight">Shivam</span></h1>
+          <h2>Full Stack Java Developer</h2>
+          <p>I specialize in creating robust web applications and responsive user interfaces with modern technologies.</p>
+          <div className="hero-buttons">
+            <Link to="/projects" className="cta-button primary">View My Work</Link>
+            <Link to="/contact" className="cta-button secondary">Contact Me</Link>
+          </div>
+        </div>
+        <div className="scroll-indicator">
+          <div className="mouse">
+            <div className="wheel"></div>
+          </div>
+          <div className="arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

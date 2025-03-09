@@ -1,35 +1,109 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar">
-      <div className="container">
-        <Link className="navbar-brand" to="/">Shivam Portfolio</Link>
-        <button
-          className="navbar-toggler"
-          type="button" 
-          onClick={() => {
-            const navbarNav = document.getElementById('navbarNav');
-            navbarNav.classList.toggle('show');
-          }}
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            {/* Replaced href with Link to for routing */}
-            <li className="nav-item"><Link className="nav-link" to="/Home">Home</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/services">Services</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/projects">Projects</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/Education">Education</Link></li>
-          </ul>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">
+          Shivam
+        </Link>
+
+        <div className={`menu-icon ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+
+        <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+          <li className="nav-item">
+            <Link 
+              to="/" 
+              className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/about" 
+              className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/services" 
+              className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Services
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/projects" 
+              className={`nav-link ${location.pathname === '/projects' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Projects
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/experience" 
+              className={`nav-link ${location.pathname === '/experience' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Experience
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/education" 
+              className={`nav-link ${location.pathname === '/education' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Education
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/contact" 
+              className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`} 
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

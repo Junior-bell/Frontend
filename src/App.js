@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importing React Router components
 import Navbar from './Components/Navbar';
 import Main from './Components/Main';
@@ -11,22 +11,54 @@ import ImageComponent from './Components/ImageComponent';
 import About from './Components/About';
 import Projects from './Components/Projects'; // Corrected import
 import './App.css';
+import { Particles } from 'react-tsparticles';
+import { loadSlim } from "tsparticles-slim";
 
 const App = () => {
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
   return (
-    <Router>
-      <Navbar /> {/* This stays on all pages */}
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/Education" element={<Education />} />
-        <Route path="/Experience" element={<Experience />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/projects" element={<Projects />} /> {/* Corrected route */}
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </Router>
+    <div className="app-container">
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          background: {
+            color: "#0a0a23",
+          },
+          particles: {
+            number: { value: 50 },
+            size: { value: 3 },
+            color: { value: "#ffffff" },
+            move: {
+              enable: true,
+              speed: 1,
+            },
+            opacity: {
+              value: 0.5,
+            },
+          },
+          detectRetina: true,
+        }}
+      />
+      <Router>
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+      </Router>
+    </div>
   );
 };
 

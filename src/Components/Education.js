@@ -3,19 +3,22 @@ import './Education.css'; // Importing the CSS file
 
 const Education = () => {
   return (
-    <section className="education-section">
-      <div className="container">
-        <h2>Education</h2>
-        <div className="education-item">
-          <h3>Bachelor in Electronics and Telecommunication</h3>
-          <p>Dr.Babasaheb Ambedkar Marathwada University,2023</p>
+    <div className="education-container">
+      <h1 className="education-title">Education</h1>
+      <div className="education-grid">
+        <div className="education-card">
+          <h2 className="degree-title">Bachelor in Electronics and Telecommunication</h2>
+          <p className="institution">Dr.Babasaheb Ambedkar Marathwada University</p>
+          <p className="year">2023</p>
         </div>
-        <div className="education-item">
-          <h3>Diploma in Electronics and Telecommunication</h3>
-          <p>Government Polytechnics Sambhajinagar, 2018</p>
+        
+        <div className="education-card">
+          <h2 className="degree-title">Diploma in Electronics and Telecommunication</h2>
+          <p className="institution">Government Polytechnic Sambhajinagar</p>
+          <p className="year">2020</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

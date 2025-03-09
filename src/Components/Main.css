@@ -1,9 +1,360 @@
 /* Style for the profile image */
 img {
-    width: 150px; /* You can adjust this size */
-    height: 150px; /* Keep it square */
-    object-fit: cover;
-    border-radius: 50%; /* Makes the image circular */
-    border: 3px solid #ff6600; /* Optional: add a border that matches your theme */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ff6600;
+}
+
+/* Base styles */
+body {
+  background-color: rgb(0, 0, 33);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Root variables */
+:root {
+  --primary-color: #6200ea;
+  --secondary-color: #9d4edd;
+  --accent-color: #00b4d8;
+  --text-color: #f8f9fa;
+  --dark-bg: #0a0a23;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --hover-color: #7c4dff;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Section padding */
+section {
+  padding: 80px 0;
+}
+
+/* Heading styles */
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Custom button styling */
+.btn-custom {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
+}
+
+.btn-custom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(74, 0, 224, 0.5);
+}
+
+/* Card styles */
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Social icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(74, 0, 224, 0.5);
+}
+
+/* Animated background */
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.bg-animation span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: move 15s linear infinite;
+}
+
+/* Keyframes for animated background */
+@keyframes move {
+  0% {
+      transform: translateY(0) translateX(0);
+      opacity: 1;
+  }
+  70% {
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-1000px) translateX(500px);
+      opacity: 0;
+  }
+}
+
+/* Main component styling */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  padding: 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero-image {
+  margin-bottom: 2rem;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #ffcc00;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.highlight {
+  background: linear-gradient(45deg, #ffcc00, #ff6b6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #ffcc00;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button.primary {
+  background-color: #ffcc00;
+  color: #0a0a23;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffcc00;
+}
+
+.cta-button.primary:hover {
+  background-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 204, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Scroll indicator animation */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 2s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.arrow span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  margin: -5px;
+  animation: arrow 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 10px;
+  }
+  100% {
+    opacity: 0;
+    top: 30px;
+  }
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
   }
   
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .cta-button {
+    width: 100%;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
