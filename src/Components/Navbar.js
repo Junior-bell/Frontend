@@ -8,9 +8,11 @@ const Navbar = () => {
         <Link className="navbar-brand" to="/">Shivam Portfolio</Link>
         <button
           className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          type="button" 
+          onClick={() => {
+            const navbarNav = document.getElementById('navbarNav');
+            navbarNav.classList.toggle('show');
+          }}
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"

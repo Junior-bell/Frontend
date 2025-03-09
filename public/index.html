@@ -27,3 +27,160 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom styles for modern UI -->
+    <style>
+        :root {
+            /* 
+             * These CSS variables define the color scheme and styling for the portfolio.
+             * The portfolio uses a dark theme with purple and blue accents.
+             * 
+             * GitHub Repository:
+             * https://github.com/Junior-bell/Frontend
+             * 
+             * Contact:
+             * Email: waghshivam322@gmail.com
+             * LinkedIn: https://www.linkedin.com/in/shivam-w-1969ab2ab/
+             */
+            --primary-color: #6200ea;
+            --secondary-color: #9d4edd;
+            --accent-color: #00b4d8;
+            --text-color: #f8f9fa;
+            --dark-bg: #0a0a23;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --hover-color: #7c4dff;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --error-color: #f44336;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            background: linear-gradient(to right, var(--dark-bg), #001e3c);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(74, 0, 224, 0.5);
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.5);
+        }
+        
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .bg-animation span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: move 15s linear infinite;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(500px);
+                opacity: 0;
+            }
+        }
+    </style>
+    
+    <!-- Initialize AOS animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Create animated background particles
+            const bgAnimation = document.createElement('div');
+            bgAnimation.classList.add('bg-animation');
+            document.body.appendChild(bgAnimation);
+            
+            for (let i = 0; i < 50; i++) {
+                const span = document.createElement('span');
+                span.style.top = Math.random() * 100 + '%';
+                span.style.left = Math.random() * 100 + '%';
+                span.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                span.style.animationDelay = Math.random() * 5 + 's';
+                bgAnimation.appendChild(span);
+            }
+        });
+    </script>
