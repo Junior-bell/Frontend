@@ -1,3 +1,4 @@
+/* Experience Container */
 .experience-container {
   padding: 80px 20px 40px;
   max-width: 1200px;
@@ -12,22 +13,34 @@
 }
 
 .experience-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex; /* ✅ Keeping Flexbox */
+  flex-direction: column;
   gap: 30px;
 }
 
+/* Experience Card */
 .experience-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  padding: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column; /* ✅ Keeping Flexbox */
+  min-height: 100%;
+  padding: 30px;
 }
 
 .experience-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 204, 0, 0.3);
+}
+
+/* Experience Content */
+.experience-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .job-title {
@@ -39,7 +52,7 @@
 .company {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: #fff;
+  color: white;
 }
 
 .period {
@@ -51,10 +64,22 @@
 .responsibilities {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
+  flex-grow: 1;
 }
 
+/* Responsive Fixes */
 @media (max-width: 768px) {
   .experience-title {
     font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-grid {
+    flex-direction: column;
+  }
+
+  .experience-card {
+    max-width: 100%;
   }
 }

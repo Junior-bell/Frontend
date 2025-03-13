@@ -8,7 +8,6 @@ const Projects = () => {
       title: "E-Commerce Platform",
       description: "A full-stack e-commerce platform built with Spring Boot and React.",
       technologies: ["Java", "Spring Boot", "React", "MySQL", "AWS"],
-      image: "https://via.placeholder.com/600x400?text=E-Commerce+Project",
       githubLink: "https://github.com",
       liveLink: "https://example.com"
     },
@@ -17,7 +16,6 @@ const Projects = () => {
       title: "Task Management System",
       description: "A task management application with user authentication and real-time updates.",
       technologies: ["Java", "Spring Boot", "Angular", "MongoDB", "Docker"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
       githubLink: "https://github.com",
       liveLink: "https://example.com"
     },
@@ -26,7 +24,6 @@ const Projects = () => {
       title: "Weather Application",
       description: "A responsive weather application that provides real-time weather data.",
       technologies: ["JavaScript", "React", "Node.js", "OpenWeather API"],
-      image: "https://via.placeholder.com/600x400?text=Weather+App",
       githubLink: "https://github.com",
       liveLink: "https://example.com"
     },
@@ -35,7 +32,6 @@ const Projects = () => {
       title: "Fitness Tracker",
       description: "A mobile-first application to track workouts and nutrition.",
       technologies: ["Java", "Android", "Firebase", "Material Design"],
-      image: "https://via.placeholder.com/600x400?text=Fitness+Tracker",
       githubLink: "https://github.com",
       liveLink: "https://example.com"
     }
@@ -47,9 +43,6 @@ const Projects = () => {
       <div className="projects-grid">
         {projects.map((project) => (
           <div className="project-card" key={project.id}>
-            <div className="project-image">
-              <img src={project.image} alt={project.title} />
-            </div>
             <div className="project-content">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
