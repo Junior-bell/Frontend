@@ -1,6 +1,6 @@
 /* Navbar Container */
 .navbar {
-  background-color: rgba(10, 10, 35, 0.95);
+  background-color: rgb(18, 18, 62);
   height: 80px;
   display: flex;
   justify-content: center;
@@ -12,6 +12,12 @@
   width: 100%;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(18, 18, 62, 0.9);
 }
 
 .navbar-container {
@@ -26,8 +32,8 @@
 
 /* Logo Styling */
 .navbar-logo {
-  color: #ffcc00;
-  font-size: 2.2rem;
+  color: yellow;
+  font-size: 1.5rem;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
@@ -55,14 +61,14 @@
   height: 100%;
   display: flex;
   align-items: center;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 /* Nav Links */
 .nav-link {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   padding: 0 5px;
   height: 100%;
@@ -91,11 +97,11 @@
 }
 
 .nav-link:hover {
-  color: #ffcc00;
+  color: yellow;
 }
 
 .nav-link.active {
-  color: #ffcc00;
+  color: yellow;
 }
 
 /* Hamburger Menu Icon */
@@ -112,10 +118,23 @@
 .menu-icon span {
   display: block;
   height: 3px;
-  width: 100%;
-  background-color: #fff;
+  width: 25px;
+  background-color: white;
   border-radius: 3px;
   transition: all 0.3s ease;
+  margin: 4px 0;
+}
+
+.menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Mobile Menu */
@@ -163,5 +182,35 @@
   .nav-link.active {
     background-color: rgba(255, 204, 0, 0.1);
     border-radius: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgb(18, 18, 62);
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
   }
 }

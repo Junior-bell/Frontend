@@ -21,16 +21,16 @@ const Contact = () => {
           </div>
           <div className="contact-item">
             <i className="fab fa-linkedin"></i>
-            <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            <a href="https://www.linkedin.com/in/shivam-w-1969ab2ab/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
           </div>
           <div className="contact-item">
             <i className="fab fa-github"></i>
-            <a href="#" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <a href="https://github.com/Junior-bell/BackEnd" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
           </div>
           
           <div className="social-links">
-            <a href="#" className="social-link"><i className="fab fa-linkedin-in"></i></a>
-            <a href="#" className="social-link"><i className="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/shivam-w-1969ab2ab/" className="social-link"><i className="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Junior-bell/BackEnd" className="social-link"><i className="fab fa-github"></i></a>
             <a href="#" className="social-link"><i className="fab fa-twitter"></i></a>
             <a href="#" className="social-link"><i className="fab fa-instagram"></i></a>
           </div>
