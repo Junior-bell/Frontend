@@ -199,6 +199,8 @@
     left: 0;
     background-color: rgb(18, 18, 62);
     padding: 20px 0;
+    max-height: calc(100vh - 60px); /* Ensure the menu is scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
   }
 
   .nav-menu.active {
