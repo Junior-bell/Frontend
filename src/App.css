@@ -29,6 +29,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  overflow-y: auto; /* Ensure content is scrollable */
 }
 
 /* Common section styles for all pages */
