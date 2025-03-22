@@ -2,14 +2,12 @@ import React, { useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importing React Router components
 import Navbar from './Components/Navbar';
 import Main from './Components/Main';
-import Home from './Components/Home';
-import Contact from './Components/Contact'; // New Component
-import Education from './Components/Education'; // New Component
-import Experience from './Components/Experience'; // New Component
-import Services from './Components/Services'; // New Component
-import ImageComponent from './Components/ImageComponent';
 import About from './Components/About';
-import Projects from './Components/Projects'; // Corrected import
+import Projects from './Components/Projects';
+import Experience from './Components/Experience';
+import Education from './Components/Education';
+import Services from './Components/Services';
+import Contact from './Components/Contact';
 import './App.css';
 import { Particles } from 'react-tsparticles';
 import { loadSlim } from "tsparticles-slim";
@@ -29,15 +27,26 @@ const App = () => {
             color: "#0a0a23",
           },
           particles: {
-            number: { value: 50 },
+            number: { value: 80 },
             size: { value: 3 },
             color: { value: "#ffffff" },
             move: {
               enable: true,
               speed: 1,
+              direction: "none",
+              random: true,
+              outMode: "out",
             },
             opacity: {
               value: 0.5,
+              random: true,
+            },
+            links: {
+              enable: true,
+              distance: 150,
+              color: "#ffffff",
+              opacity: 0.2,
+              width: 1
             },
           },
           detectRetina: true,
@@ -48,7 +57,6 @@ const App = () => {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />

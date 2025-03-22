@@ -1,10 +1,18 @@
 /* App.css */
 
-/* Global reset and common styles */
-* {
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Modern Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -13,6 +21,7 @@ body {
   background-color: #0a0a23;
   overflow-x: hidden;
   line-height: 1.6;
+  min-height: 100%;
 }
 
 /* App container */
@@ -29,7 +38,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  overflow-y: auto; /* Ensure content is scrollable */
+  overflow-y: auto;
 }
 
 /* Common section styles for all pages */
@@ -43,43 +52,60 @@ body {
   align-items: center;
 }
 
-/* Standard section title for consistency */
+/* Modern Section Title with Gradient */
 .section-title {
   font-size: 2.5rem;
-  color: #fff;
+  font-weight: 700;
   margin-bottom: 50px;
   text-align: center;
   position: relative;
-  font-weight: 700;
+  background: linear-gradient(to right, #ffcc00, #ff6b6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
-.section-title:after {
+.section-title::after {
   content: '';
   position: absolute;
-  width: 100px;
+  width: 80px;
   height: 4px;
-  background: linear-gradient(45deg, #ffcc00, #ff6b6b);
+  background: linear-gradient(to right, #ffcc00, #ff6b6b);
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 2px;
 }
 
-/* Common card styling for services, projects, etc. */
+/* Section Description */
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+/* Common card styling - Glass Morphism */
 .card {
   background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   border-color: rgba(255, 204, 0, 0.3);
 }
 
-/* Common button styles */
+/* Modern Button Styles */
 .button {
   padding: 12px 30px;
   font-size: 1.1rem;
@@ -90,13 +116,32 @@ body {
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .button-primary {
   background-color: #ffcc00;
   color: #0a0a23;
   border: none;
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
+
+.button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #fff;
+  transition: all 0.3s;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+.button-primary:hover::before {
+  width: 100%;
 }
 
 .button-secondary {
@@ -105,15 +150,21 @@ body {
   border: 2px solid #ffcc00;
 }
 
-.button-primary:hover {
-  background-color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+.button-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 204, 0, 0.1);
+  transition: all 0.3s;
+  border-radius: 30px;
+  z-index: -1;
 }
 
-.button-secondary:hover {
-  background-color: rgba(255, 204, 0, 0.1);
-  transform: translateY(-3px);
+.button-secondary:hover::before {
+  width: 100%;
 }
 
 /* Particles background */
@@ -126,7 +177,7 @@ body {
   z-index: -1;
 }
 
-/* Ensure consistent page container styles for specific pages */
+/* Page specific min-heights */
 .services-container,
 .education-container,
 .experience-container,

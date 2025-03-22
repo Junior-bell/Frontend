@@ -11,22 +11,26 @@ const Main = () => {
           <img src={profileImage} alt="Shivam" className="profile-img" />
         </div>
         <div className="hero-text">
-          <h1>Hello, I'm <span className="highlight">Shivam</span></h1>
+          <span className="hero-greeting">Hello, I'm</span>
+          <h1><span className="highlight">Shivam </span>Wagh</h1>
           <h2>Full Stack Java Developer</h2>
-          <p>I specialize in creating robust web applications and responsive user interfaces with modern technologies.</p>
+          <p>I specialize in building modern, responsive web applications and RESTful APIs using Java, Spring Boot, and React.</p>
+          
+          <div className="hero-socials">
+            <a href="https://linkedin.com/in/shivam-w-1969ab2ab" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Junior-bell/Frontend" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <i className="fab fa-github"></i>
+            </a>
+            <a href="mailto:waghshivam322@gmail.com" className="social-icon">
+              <i className="fas fa-envelope"></i>
+            </a>
+          </div>
+          
           <div className="hero-buttons">
-            <Link to="/projects" className="cta-button primary">View My Work</Link>
+            <Link to="/projects" className="cta-button primary">My Projects</Link>
             <Link to="/contact" className="cta-button secondary">Contact Me</Link>
-          </div>
-        </div>
-        <div className="scroll-indicator">
-          <div className="mouse">
-            <div className="wheel"></div>
-          </div>
-          <div className="arrow">
-            <span></span>
-            <span></span>
-            <span></span>
           </div>
         </div>
       </div>
