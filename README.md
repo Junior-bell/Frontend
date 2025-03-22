@@ -4,7 +4,7 @@
 This project is a modern, responsive portfolio website for Shivam Wagh, a Full Stack Java Developer. The website showcases professional skills, services, projects, and provides contact information. It's designed with a clean, professional interface highlighting expertise in Java, Spring Boot, and React development.
 
 ## Live Demo
-Visit the live portfolio: [y-sigma-hazel.vercel.app](https://y-junior-bell-shivam-waghs-projects.vercel.app/)
+Visit the live portfolio: [My Portfolio website](https://y-junior-bell-shivam-waghs-projects.vercel.app/)
 
 ## Features
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
