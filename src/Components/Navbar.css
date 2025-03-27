@@ -1,7 +1,7 @@
 /* Navbar Container */
 .navbar {
-  background-color: rgb(18, 18, 62);
-  height: 80px;
+  background-color: rgba(13, 13, 44, 0.95);  /* Darker, more professional blue */
+  height: 70px;  /* Slightly reduced height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,13 +11,15 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);  /* Softer shadow */
+  padding: 0 20px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);  /* Add blur effect for better visibility */
 }
 
 .navbar.scrolled {
-  background-color: rgba(18, 18, 62, 0.9);
+  background-color: rgba(13, 13, 44, 0.98);
+  height: 65px;  /* Slightly smaller when scrolled */
 }
 
 .navbar-container {
@@ -26,23 +28,24 @@
   align-items: center;
   width: 100%;
   max-width: 1300px;
-  padding: 0 30px;
+  padding: 0 20px;
   height: 100%;
 }
 
 /* Logo Styling */
 .navbar-logo {
-  color: yellow;
-  font-size: 1.5rem;
+  color: #FFD700;  /* More golden yellow */
+  font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);  /* Subtle glow effect */
 }
 
 .navbar-logo:hover {
-  color: #ff9a00;
+  color: #FFA500;  /* Orange on hover */
   transform: scale(1.05);
 }
 
@@ -66,28 +69,30 @@
 
 /* Nav Links */
 .nav-link {
-  color: white;
+  color: #E5E5E5;  /* Slightly off-white for better readability */
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  padding: 0 5px;
+  padding: 0 15px;
   height: 100%;
   display: flex;
   align-items: center;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
-/* 🔥 Yellow Underline Animation (Starts from Left) */
+/* Yellow Underline Animation */
 .nav-link::after {
   content: "";
   position: absolute;
-  background-color: #ffcc00;
-  height: 3px;
+  background-color: #FFD700;
+  height: 2px;
   width: 0;
-  left: 0;  /* Starts from the left */
-  bottom: 0; /* Correct positioning */
+  left: 0;
+  bottom: 0;
   transition: width 0.3s ease-in-out;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);  /* Glow effect for underline */
 }
 
 /* Expand animation on hover & active */
@@ -97,11 +102,11 @@
 }
 
 .nav-link:hover {
-  color: yellow;
+  color: #FFD700;
 }
 
 .nav-link.active {
-  color: yellow;
+  color: #FFD700;
 }
 
 /* Hamburger Menu Icon */
@@ -113,16 +118,19 @@
   height: 21px;
   cursor: pointer;
   z-index: 10;
+  padding: 0;
+  margin-right: 10px;
 }
 
 .menu-icon span {
   display: block;
   height: 3px;
-  width: 25px;
-  background-color: white;
+  width: 30px;
+  background-color: #FFD700;  /* Match logo color */
   border-radius: 3px;
   transition: all 0.3s ease;
-  margin: 4px 0;
+  margin: 3px 0;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
 }
 
 .menu-icon.active span:nth-child(1) {
@@ -141,73 +149,67 @@
 @media screen and (max-width: 960px) {
   .menu-icon {
     display: flex;
+    position: relative;
+    z-index: 1001;
   }
 
   .nav-menu {
     flex-direction: column;
     width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 80px;
+    height: calc(100vh - 70px);  /* Adjust height to account for navbar */
+    position: fixed;
+    top: 70px;  /* Match navbar height */
     right: -100%;
     opacity: 0;
-    padding: 50px 0;
-    transition: all 0.5s ease;
-    background-color: rgba(10, 10, 35, 0.98);
-    overflow-y: auto; /* Ensure the menu is scrollable */
+    padding: 20px 0;
+    transition: all 0.4s ease;
+    background-color: rgba(13, 13, 44, 0.98);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
   }
 
   .nav-menu.active {
     right: 0;
     opacity: 1;
-    z-index: 1;
   }
 
   .nav-item {
     height: auto;
-    margin: 20px 0;
+    margin: 15px 0;
+    width: 100%;
+    padding: 0 30px;
   }
 
   .nav-link {
     text-align: center;
     width: 100%;
-    display: block;
     padding: 15px 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
   }
 
-  .nav-link::after {
-    display: none; /* Disable yellow line animation on mobile */
+  .nav-link:hover {
+    background-color: rgba(255, 215, 0, 0.1);
   }
 
   .nav-link.active {
-    background-color: rgba(255, 204, 0, 0.1);
+    background-color: rgba(255, 215, 0, 0.15);
     border-radius: 8px;
+    color: #FFD700;
   }
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
 }
 
+/* Remove the duplicate media query to avoid conflicts */
 @media (max-width: 768px) {
-  .menu-icon {
-    display: flex;
-  }
-
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: rgb(18, 18, 62);
-    padding: 20px 0;
-    max-height: calc(100vh - 60px); /* Ensure the menu is scrollable */
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-
   .nav-item {
     margin: 10px 0;
     text-align: center;
@@ -217,3 +219,4 @@
     font-size: 1.2rem;
   }
 }
+
