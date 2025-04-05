@@ -8,9 +8,9 @@ const Experience = () => {
       <div className="experience-grid">
         <div className="experience-card">
           <div className="experience-content">
-            <h2 className="job-title">Software Developer</h2>
+            <h2 className="job-title">Trainee associate</h2>
             <p className="company">Company Name</p>
-            <p className="period">2023 - Present</p>
+            <p className="period">2024 - Present</p>
             <p className="responsibilities">
               Responsibilities and achievements in this role.
             </p>
@@ -19,9 +19,9 @@ const Experience = () => {
         
         <div className="experience-card">
           <div className="experience-content">
-            <h2 className="job-title">Intern</h2>
-            <p className="company">Company Name</p>
-            <p className="period">2022 - 2023</p>
+            <h2 className="job-title">Diploma Trainee</h2>
+            <p className="company">Vishay Components pvt ltd</p>
+            <p className="period">2019 - 2021</p>
             <p className="responsibilities">
               Responsibilities and achievements in this role.
             </p>
