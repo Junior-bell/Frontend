@@ -8,8 +8,8 @@ const Projects = () => {
       title: "E-Commerce Platform",
       description: "A full-stack e-commerce platform built with Spring Boot and React.",
       technologies: ["Java", "Spring Boot", "React", "MySQL", "AWS"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com"
+      githubLink: "https://github.com/junior-bell/frontend",
+      liveLink: "wagh-shivam.vercel.app"
     },
     {
       id: 2,
