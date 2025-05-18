@@ -24,8 +24,8 @@ const Projects = () => {
       title: "Weather Application",
       description: "A responsive weather application that provides real-time weather data.",
       technologies: ["JavaScript", "React", "Node.js", "OpenWeather API"],
-      githubLink: "https://github.com",
-      liveLink: "https://example.com"
+      githubLink: "https://github.com/Junior-bell/Weather-App",
+      liveLink: "https://shivam-weather.vercel.app/"
     },
     {
       id: 4,
