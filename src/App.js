@@ -1,72 +1,128 @@
-import React, { useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importing React Router components
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './Components/Navbar';
-import Main from './Components/Main';
-import About from './Components/About';
-import Projects from './Components/Projects';
-import Experience from './Components/Experience';
-import Education from './Components/Education';
-import Services from './Components/Services';
-import Contact from './Components/Contact';
+import { ThemeProvider } from './lib/ThemeContext';
+import ParticlesWrapper from './Components/ParticlesWrapper';
 import './App.css';
-import { Particles } from 'react-tsparticles';
-import { loadSlim } from "tsparticles-slim";
 
-const App = () => {
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
+// Lazy load components
+const Home = lazy(() => import('./Components/Home'));
+const About = lazy(() => import('./Components/About'));
+const Services = lazy(() => import('./Components/Services'));
+const Projects = lazy(() => import('./Components/Projects'));
+const Experience = lazy(() => import('./Components/Experience'));
+const Education = lazy(() => import('./Components/Education'));
+const Contact = lazy(() => import('./Components/Contact'));
+
+// Loading component
+const Loading = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+  </div>
+);
+
+// Route wrapper component
+const RouteWrapper = ({ children }) => {
+  return (
+    <AnimatePresence mode="wait">
+      <Suspense fallback={<Loading />}>
+        {children}
+      </Suspense>
+    </AnimatePresence>
+  );
+};
+
+// App content component
+const AppContent = () => {
+  // const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      // setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="app-container">
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          background: {
-            color: "#0a0a23",
-          },
-          particles: {
-            number: { value: 80 },
-            size: { value: 3 },
-            color: { value: "#ffffff" },
-            move: {
-              enable: true,
-              speed: 1,
-              direction: "none",
-              random: true,
-              outMode: "out",
-            },
-            opacity: {
-              value: 0.5,
-              random: true,
-            },
-            links: {
-              enable: true,
-              distance: 150,
-              color: "#ffffff",
-              opacity: 0.2,
-              width: 1
-            },
-          },
-          detectRetina: true,
-        }}
-      />
-      <Router>
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-      </Router>
+    <div className="bg-background text-foreground">
+      <Navbar />
+      <main className="pt-16">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <RouteWrapper>
+                <ParticlesWrapper>
+                  <Home />
+                </ParticlesWrapper>
+              </RouteWrapper>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <RouteWrapper>
+                <About />
+              </RouteWrapper>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <RouteWrapper>
+                <Services />
+              </RouteWrapper>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <RouteWrapper>
+                <Projects />
+              </RouteWrapper>
+            }
+          />
+          <Route
+            path="/experience"
+            element={
+              <RouteWrapper>
+                <Experience />
+              </RouteWrapper>
+            }
+          />
+          <Route
+            path="/education"
+            element={
+              <RouteWrapper>
+                <Education />
+              </RouteWrapper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <RouteWrapper>
+                <Contact />
+              </RouteWrapper>
+            }
+          />
+        </Routes>
+      </main>
     </div>
+  );
+};
+
+// Main App component
+const App = () => {
+  return (
+    <ThemeProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </ThemeProvider>
   );
 };
 

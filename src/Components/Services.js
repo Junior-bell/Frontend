@@ -1,59 +1,124 @@
 import React from 'react';
-import './Services.css';
+import { motion } from 'framer-motion';
+import { Code2, Palette, Smartphone, Globe, Database, Shield, Terminal } from 'lucide-react';
+
+const services = [
+  {
+    title: "Frontend Development",
+    description: "Developing responsive, fast-loading user interfaces using React.js, Next.js, and Bootstrap.",
+    icon: <Code2 className="w-12 h-12 text-primary" />,
+    features: [
+      "Responsive UI with Bootstrap",
+      "Next.js for SEO & Routing",
+      "Reusable Components",
+      "Performance Optimization"
+    ]
+  },
+  {
+    title: "Java Backend Development",
+    description: "Building secure and scalable RESTful APIs with Java, Spring Boot, and Maven.",
+    icon: <Terminal className="w-12 h-12 text-primary" />,
+    features: [
+      "REST API Development",
+      "Spring Boot + Maven",
+      "JWT Authentication",
+      "Exception Handling"
+    ]
+  },
+  {
+    title: "Database Management",
+    description: "Designing and optimizing relational databases using Oracle and MySQL.",
+    icon: <Database className="w-12 h-12 text-primary" />,
+    features: [
+      "Relational DB Design",
+      "PL/SQL Query Optimization",
+      "CRUD Operations",
+      "Data Backup & Migration"
+    ]
+  },
+  {
+    title: "UI/UX Design",
+    description: "Creating clean and intuitive user interfaces focused on usability and accessibility.",
+    icon: <Palette className="w-12 h-12 text-primary" />,
+    features: [
+      "Wireframing with Figma",
+      "Responsive Layouts",
+      "Accessible Color Schemes",
+      "User-Centered Design"
+    ]
+  },
+  {
+    title: "Security & Authentication",
+    description: "Implementing best practices in securing web apps with Spring Security and HTTPS.",
+    icon: <Shield className="w-12 h-12 text-primary" />,
+    features: [
+      "Spring Security Integration",
+      "JWT Tokens & Role-based Auth",
+      "Input Validation",
+      "HTTPS & CSRF Protection"
+    ]
+  },
+  {
+    title: "Linux & DevOps Basics",
+    description: "Working with Linux terminals, Git, and deploying apps on Vercel or local servers.",
+    icon: <Smartphone className="w-12 h-12 text-primary" />,
+    features: [
+      "Version Control with Git",
+      "Linux Terminal Usage",
+      "Vercel Deployment",
+      "Basic Shell Scripting"
+    ]
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      title: "Full Stack Development",
-      description: "Building scalable web applications with Java, Spring Boot, and modern frontend frameworks.",
-      icon: "fas fa-code"
-    },
-    {
-      title: "Database Management",
-      description: "Designing and optimizing database systems for performance and reliability.",
-      icon: "fas fa-database"
-    },
-    {
-      title: "Frontend Development",
-      description: "Creating interactive and responsive user interfaces with React and modern CSS.",
-      icon: "fas fa-laptop-code"
-    },
-    {
-      title: "API Development",
-      description: "Building robust and secure RESTful APIs for seamless integration.",
-      icon: "fas fa-plug"
-    },
-    {
-      title: "Cloud Deployment",
-      description: "Deploying applications to cloud platforms like AWS, Azure, and Google Cloud.",
-      icon: "fas fa-cloud"
-    },
-    {
-      title: "DevOps Integration",
-      description: "Implementing CI/CD pipelines and containerization for efficient deployment.",
-      icon: "fas fa-cogs"
-    }
-  ];
-
   return (
-    <div className="section-container services-container">
-      <h1 className="section-title">My Services</h1>
-      <p className="section-description">
-        I provide comprehensive solutions tailored to meet your specific needs. 
-        From concept to deployment, I handle every aspect of the development process.
-      </p>
-      <div className="services-grid">
-        {services.map((service, index) => (
-          <div className="service-card" key={index}>
-            <div className="service-icon">
-              <i className={service.icon}></i>
-            </div>
-            <h2 className="service-title">{service.title}</h2>
-            <p className="service-description">{service.description}</p>
-          </div>
-        ))}
+    <section className="py-20 px-4 md:px-6 lg:px-8 bg-background">
+      <div className="container mx-auto max-w-6xl">
+        <motion.h2 
+          className="text-4xl md:text-3xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          My Development Services
+        </motion.h2>
+        <motion.p 
+          className="text-center text-muted-foreground max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          From full-stack web apps to secure backend APIs, I offer a range of services that combine clean UI, robust Java backends, and efficient databases to help your ideas come to life.
+        </motion.p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              className="bg-card text-card-foreground p-6 rounded-lg border border-border shadow-sm hover:shadow-md transition-all duration-300 group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="flex flex-col items-center">
+                <div className="flex items-center justify-center mb-6">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-4">{service.title}</h3>
+                <p className="text-muted-foreground text-center mb-6">{service.description}</p>
+                <ul className="list-disc list-inside text-muted-foreground text-left w-full">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="text-sm">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

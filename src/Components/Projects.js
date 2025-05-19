@@ -1,5 +1,8 @@
 import React from 'react';
-import './Projects.css';
+// import './Projects.css';
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Github, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -38,32 +41,73 @@ const Projects = () => {
   ];
 
   return (
-    <div className="section-container projects-container">
-      <h1 className="section-title">My Projects</h1>
-      <div className="projects-grid">
-        {projects.map((project) => (
-          <div className="project-card" key={project.id}>
-            <div className="project-content">
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tech">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="tech-tag">{tech}</span>
-                ))}
-              </div>
-              <div className="project-links">
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link github">
-                  <i className="fab fa-github"></i> Code
-                </a>
-                <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="project-link live">
-                  <i className="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
+    <section className="py-20 px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-300 bg-clip-text text-transparent relative inline-block pb-2">
+            My Projects
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-300 rounded-full"></span>
+          </h1>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="group hover:shadow-lg transition-shadow h-full border border-border shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-bold">{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-4 pt-4">
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <Github className="h-4 w-4" />
+                      Code
+                    </a>
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
