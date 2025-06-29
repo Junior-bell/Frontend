@@ -5,14 +5,14 @@ import { Phone, Mail, MapPin, Linkedin, Github, Twitter, Instagram } from 'lucid
 const Contact = () => {
   return (
     <section className="py-20 px-4 md:px-6 lg:px-8">
-      <div className="container mx-auto max-w-3xl text-center">
+      <div className="container mx-auto max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h1 className="text-4xl md:text-3xl font-bold bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-primary-foreground bg-clip-text text-transparent">
             Contact Me
           </h1>
         </motion.div>
@@ -74,7 +74,7 @@ const Contact = () => {
             <Github className="h-5 w-5" />
           </a>
           <a
-            href="#" // Replace with actual Twitter link
+            href="https://twitter.com/your-handle"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-background/10 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-red-400 hover:text-background transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"
@@ -82,7 +82,7 @@ const Contact = () => {
             <Twitter className="h-5 w-5" />
           </a>
           <a
-            href="#" // Replace with actual Instagram link
+            href="https://instagram.com/your-handle"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-background/10 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-red-400 hover:text-background transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"

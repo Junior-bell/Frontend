@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Palette, Smartphone, Globe, Database, Shield, Terminal } from 'lucide-react';
+import { Code2, Palette, Smartphone, Database, Shield, Terminal } from 'lucide-react';
 
 const services = [
   {

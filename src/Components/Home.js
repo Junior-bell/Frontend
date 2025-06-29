@@ -117,6 +117,14 @@ const Home = () => {
             >
               Contact Me
             </Link>
+            <a
+              href="/ShivamResume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-primary text-primary hover:bg-gradient-to-r hover:from-yellow-400 hover:to-red-400 hover:text-background hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              Download Resume
+            </a>
           </motion.div>
         </div>
       </div>

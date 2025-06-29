@@ -12,7 +12,7 @@ const Main = () => {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background text-foreground"
     >
-      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] w-full px-5 py-20 relative">
+      <div className="flex flex-col items-center w-full px-5 py-20 relative min-h-[calc(100vh-80px)] sm:justify-center sm:min-h-[calc(100vh-80px)] justify-start min-h-0 h-auto overflow-y-auto">
         <div className="flex flex-col items-center justify-center max-w-4xl text-center z-10">
           {/* Profile Image */}
           <div className="relative mb-8">
@@ -79,7 +79,7 @@ const Main = () => {
               className="px-6 py-3 rounded-full border border-primary text-primary hover:bg-accent hover:text-accent-foreground hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               Contact Me
-            </Link>
+            </Link>  
           </div>
         </div>
       </div>
