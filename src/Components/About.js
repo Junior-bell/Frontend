@@ -30,7 +30,6 @@ const About = () => {
       icon: <Smartphone className="h-6 w-6" />,
     },
   ];
-  
 
   return (
     <section className="py-20 px-4 md:px-6 lg:px-8">
@@ -80,14 +79,14 @@ const About = () => {
               Full Stack Developer
             </h2>
             <p className="text-muted-foreground mb-6">
-  I’m <strong>Shivam Wagh</strong>, a dedicated Full Stack Java Developer with a strong foundation in <strong>Spring Boot</strong>, <strong>Oracle Database</strong>, and modern backend architecture. With a background in Electronics & Telecommunication, I bring a structured engineering mindset to every project I work on.
-  <br /><br />
-  I specialize in building scalable, clean, and performance-driven web applications using Java technologies. I also enjoy crafting seamless user experiences and exploring creative frontend development with React and Next.js.
-  <br /><br />
-  Currently based in Pune, I’m actively seeking a software development role where I can contribute to real-world projects, grow as a developer, and work with innovative teams. I’m also passionate about continuously learning — from system design patterns to ethical hacking and Linux systems.
-  <br /><br />
-  Let’s connect and build something impactful together.
-</p>
+              Hi, I'm <strong>Shivam Wagh</strong> — a Java Full Stack Developer with a strong foundation in <strong>Spring Boot</strong>, <strong>Oracle Database</strong>, and scalable backend architecture.
+              <br /><br />
+              My background in Electronics & Telecommunication has shaped a structured and problem-solving mindset that I apply to every project. I enjoy building clean, efficient, and user-centric applications using technologies like React.js and Next.js.
+              <br /><br />
+              Outside my current role in the insurance domain, I dedicate time daily to advancing my technical skills — whether it’s learning about system design, exploring Linux, or deepening my understanding of cybersecurity and backend systems.
+              <br /><br />
+              I'm based in Pune and currently seeking opportunities to contribute to impactful software projects, grow as a developer, and collaborate with innovative teams.
+            </p>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <span className="font-medium">Location:</span>
@@ -117,6 +116,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              key={index}
             >
               <Card className="group hover:shadow-lg transition-shadow border border-border shadow-sm">
                 <CardHeader>

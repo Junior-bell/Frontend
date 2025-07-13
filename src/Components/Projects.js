@@ -8,11 +8,11 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce platform built with Spring Boot and React.",
-      technologies: ["Java", "Spring Boot", "React", "MySQL", "AWS"],
-      githubLink: "https://github.com/junior-bell/frontend",
-      liveLink: "wagh-shivam.vercel.app"
+      title: "Food-Delivery Application (Beta)",
+      description: "A food-delivery web application currently in beta phase, offering real-time order tracking and restaurant management.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
+      githubLink: "https://github.com/Junior-bell/food-delivery-app", // <-- update with your actual repo link
+      liveLink: "https://shivam-food-delivery-vercel.app/" // <-- update with your actual live link if available
     },
     {
       id: 2,
